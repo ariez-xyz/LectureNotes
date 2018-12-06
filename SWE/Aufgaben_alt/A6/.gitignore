@@ -1,0 +1,6 @@
+.idea/
+out/
+GAMEPLAN.md
+*.swp
+backup/
+*.iml

@@ -1,0 +1,13 @@
+<list name="root">
+ <book name="B1" price="30" isbn="123"/>
+ <list name="L1">
+  <book name="B2" price="20" isbn="234"/>
+  <list name="L2">
+   <cd name="C1" price="15"/>
+   <cd name="C2" price="5"/>
+   <book name="B3" price="10" isbn="345"/>
+  </list>
+  <cd name="C3" price="15"/>
+  <book name="B4" price="60" isbn="456"/> 
+ </list>
+</list>
