@@ -1,0 +1,35 @@
+$ java DigitRecognizer 0.05 10 200
+parsing training data... (processed 60000 samples)
+done (29s)
+### epoch 1
+training net... (processed 60000 samples)
+done. (141s)
+### epoch 2
+training net... (processed 60000 samples)
+done. (131s)
+### epoch 3
+training net... (processed 60000 samples)
+done. (137s)
+### epoch 4
+training net... (processed 60000 samples)
+done. (85s)
+### epoch 5
+training net... (processed 60000 samples)
+done. (85s)
+### epoch 6
+training net... (processed 60000 samples)
+done. (85s)
+### epoch 7
+training net... (processed 60000 samples)
+done. (84s)
+### epoch 8
+training net... (processed 60000 samples)
+done. (84s)
+### epoch 9
+training net... (processed 60000 samples)
+done. (84s)
+### epoch 10
+training net... (processed 60000 samples)
+done. (84s)
+done. (10 epochs in 1005s)
+test set accuracy: 97.700000%

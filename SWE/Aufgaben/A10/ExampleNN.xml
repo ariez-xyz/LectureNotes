@@ -1,0 +1,19 @@
+<neuralnet layers="5 3 4 2"> <!-- specify layer sizes -->
+    <layer id="0" function="sigmoid"/> <!-- sets activation function of given layer -->
+    <layer id="1" function="step 0.3"/>
+    <layer id="2" function="sigmoid"/>
+    <layer id="3" function="step 0.7"/>
+    <weight layer="1" neuronId="0" inputId="2" wt="0.5"/> <!-- set weight of a single input of given neuron -->
+    <weight layer="1" neuronId="1" inputId="0" wt="0.5"/>
+    <weight layer="1" neuronId="2" inputId="0" wt="0.5"/>
+    <weight layer="2" neuronId="0" inputId="0" wt="0.5"/>
+    <weight layer="2" neuronId="1" inputId="0" wt="0.5"/>
+    <weight layer="2" neuronId="2" inputId="2" wt="0.5"/>
+    <weight layer="2" neuronId="3" inputId="0" wt="0.5"/>
+    <weight layer="3" neuronId="0" inputId="0" wt="0.5"/>
+    <weight layer="3" neuronId="1" inputId="1" wt="0.5"/>
+    <function layer="0" neuronId="4" type="step 0.5"/> <!-- set activation function of given neuron -->
+    <function layer="1" neuronId="2" type="sigmoid"/>
+    <function layer="2" neuronId="3" type="step 0.5"/>
+    <function layer="3" neuronId="1" type="sigmoid"/>
+</neuralnet>
