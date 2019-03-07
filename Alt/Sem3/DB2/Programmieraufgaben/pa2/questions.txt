@@ -1,0 +1,205 @@
+*******************************************************************************************************************************************
+************************************************************ PS Datenbanken 2 *************************************************************
+********************************************************* Wintersemester 2018/19 **********************************************************
+******************************************************** Programming Assignment 2 *********************************************************
+***************************************************** Abgabe: bis 04.02.2019, 23:55  ******************************************************
+*******************************************************************************************************************************************
+
+
+
+*****************
+*** AUFGABE 1 ***
+*****************
+1. Geben Sie alle Titel mit einer Laufzeit(runtimeminutes) von 1000 Minuten aus. (Tabelle titles)
+
+  a) Wie grosz ist die Ergebnismenge (count(*)) der Anfrage? Geben Sie sowohl die Anfrage, als auch das Ergebnis an. (0.4p)
+
+    dpape=# SELECT count(*) FROM titles WHERE runtimeminutes=1000;
+     count 
+    -------
+         3
+    (1 row)
+
+  b) Geben Sie den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT * FROM titles WHERE runtimeminutes=1000;
+                                      QUERY PLAN                                  
+    ------------------------------------------------------------------------------
+     Gather  (cost=1000.00..130236.17 rows=902 width=112)
+       Workers Planned: 2
+       ->  Parallel Seq Scan on titles  (cost=0.00..129145.97 rows=376 width=112)
+             Filter: (runtimeminutes = 1000)
+    (4 rows)
+
+  c) Welche Strategie wird verwendet und erklaeren Sie wieso? (0.4p)
+
+    Ein paralleler sequentieller Scan, weil das Attribut runtimeminutes weder Index noch Sortierung hat
+        
+  d) Erstellen Sie einen Hash-Index auf das Attribut 'runtimeminutes'. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+    CREATE INDEX titles_runtimeminutes_idx ON titles USING hash (runtimeminutes);
+
+  e) Geben Sie erneut den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT * FROM titles WHERE runtimeminutes=1000;
+                                            QUERY PLAN                                         
+    -------------------------------------------------------------------------------------------
+     Bitmap Heap Scan on titles  (cost=26.99..3375.96 rows=902 width=112)
+       Recheck Cond: (runtimeminutes = 1000)
+       ->  Bitmap Index Scan on titles_runtimeminutes_idx  (cost=0.00..26.77 rows=902 width=0)
+             Index Cond: (runtimeminutes = 1000)
+    (4 rows)
+
+  f) Wird nun eine andere Strategie ausgewaehlt. Wenn ja, welche und erklaeren Sie weshalb? (0.4p)
+
+    Ja, nun wird ein Bitmap Index Scan ausgewaehlt, weil wir einen Hash-Index auf das Attribut runtimeminutes haben und leicht eine Bitmap fuer Pages mit "runtimeminutes=1000" erzeugen koennen, welche die Query stark beschleunigen wuerde, da wir nicht mehr alle Pages sequentiell scannen muessen.
+
+  g) Warum ist ein Hash-Index fuer diese Anfrage sinnvoll (auch im Vergleich zu einem B+-Baum-Index)? (0.4p)
+
+    Weil er schneller zu konstruieren ist als ein B+-Baum und bei wenigen Elementen pro Bucket (wie hier; nur sehr wenige Filme haben Laufzeit von genau 1000 Minuten) konstanten Zugriff bietet, was besser ist als der logarithmische Zugriff im B+-Baum.
+
+*****************
+*** AUFGABE 2 ***
+*****************
+2. Geben Sie alle Namen aus, die nach 1968 aber vor 1970 geboren sind. (Tabelle names)
+
+  a) Wie grosz ist die Ergebnismenge (count(*)) der Anfrage? Geben Sie sowohl die Anfrage, als auch das Ergebnis an. (0.4p)
+
+    dpape=# SELECT count(*) FROM names WHERE birthyear > 1968 AND birthyear < 1970;
+     count 
+    -------
+      6409
+    (1 row)
+
+  b) Geben Sie den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT count(*) FROM names WHERE birthyear > 1968 AND birthyear < 1970;
+                                           QUERY PLAN                                       
+    ----------------------------------------------------------------------------------------
+     Finalize Aggregate  (cost=216977.24..216977.25 rows=1 width=8)
+       ->  Gather  (cost=216977.02..216977.24 rows=2 width=8)
+             Workers Planned: 2
+             ->  Partial Aggregate  (cost=215977.02..215977.04 rows=1 width=8)
+                   ->  Parallel Seq Scan on names  (cost=0.00..215969.92 rows=2840 width=0)
+                         Filter: ((birthyear > 1968) AND (birthyear < 1970))
+    (6 rows)
+
+  c) Welche Strategie wird verwendet und erklaeren Sie wieso? (0.4p)
+
+    Ein sequentieller Scan auf names gefolgt von Parallel Aggregation, um "count" zu erhalten. Da kein Index auf das Geburtsjahr-Attribut in names besteht, muessen alle Tupel einzeln gescannt werden, um herauszufinden, welche im richtigen Bereich liegen.
+
+  d) Erstellen Sie einen B+Baum-Index auf das Attribut 'birthyear'. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+    CREATE INDEX ON names (birthyear);    
+
+  e) Geben Sie erneut den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT count(*) FROM names WHERE birthyear > 1968 AND birthyear < 1970;
+                                                QUERY PLAN                                             
+    ---------------------------------------------------------------------------------------------------
+     Aggregate  (cost=20610.10..20610.11 rows=1 width=8)
+       ->  Index Only Scan using names_birthyear_idx on names  (cost=0.43..20593.05 rows=6820 width=0)
+             Index Cond: ((birthyear > 1968) AND (birthyear < 1970))
+    (3 rows)
+
+  f) Wird nun eine andere Strategie ausgewaehlt. Wenn ja, welche und erklaeren Sie weshalb? (0.4p)
+
+    Ja, nun wird nur noch der B+-Baum gescannt, da dessen Blattknoten sortiert sind; wir nutzen also den B+-Baum, um das erste Tupel mit birthyear > 1968 zu finden, und lesen den Index dann sequentiell, bis wir das erste Tupel mit birthyear = 1970 finden. Diese Strategie ist natuerlich deutlich schneller, als die gesamte Relation sequentiell zu lesen.
+
+  g) Loeschen Sie den in Punkt 2.c) erstellten Index. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+    dpape=# SELECT * FROM pg_indexes WHERE tablename = 'names';
+     schemaname | tablename |      indexname      | tablespace |                                 indexdef                                 
+    ------------+-----------+---------------------+------------+--------------------------------------------------------------------------
+     public     | names     | names_pkey          |            | CREATE UNIQUE INDEX names_pkey ON public.names USING btree (nconst)
+     public     | names     | names_birthyear_idx |            | CREATE INDEX names_birthyear_idx ON public.names USING btree (birthyear)
+    (2 rows)
+
+    dpape=# DROP INDEX names_birthyear_idx;
+    DROP INDEX
+
+
+
+*****************
+*** AUFGABE 3 ***
+*****************
+3. Fuehren Sie einen natuerlichen Join auf die Tabellen 'names' und 'principals' aus. Das Ergebnis soll nur Eintraege mit Primaernamen ’Harrison Ford’ und Geburtsjahr 1942 enthalten.
+
+  a) Wie grosz ist die Ergebnismenge (count(*)) der Anfrage? Geben Sie sowohl die Anfrage, als auch das Ergebnis an. (0.4p)
+
+    dpape=# SELECT count(*) FROM names NATURAL JOIN principals WHERE primaryname = 'Harrison Ford' AND birthyear = 1942;
+     count 
+    -------
+       424
+    (1 row)
+
+  b) Geben Sie den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie names.primaryName anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT names.primaryname FROM names NATURAL JOIN principals WHERE primaryname = 'Harrison Ford' AND birthyear = 1942;
+                                             QUERY PLAN                                         
+    --------------------------------------------------------------------------------------------
+     Gather  (cost=217013.84..676355.74 rows=3 width=14)
+       Workers Planned: 2
+       ->  Parallel Hash Join  (cost=216013.84..675355.44 rows=1 width=14)
+             Hash Cond: (principals.nconst = names.nconst)
+             ->  Parallel Seq Scan on principals  (cost=0.00..425344.33 rows=12951333 width=11)
+             ->  Parallel Hash  (cost=216013.83..216013.83 rows=1 width=25)
+                   ->  Parallel Seq Scan on names  (cost=0.00..216013.83 rows=1 width=25)
+                         Filter: ((primaryname = 'Harrison Ford'::text) AND (birthyear = 1942))
+    (8 rows)
+
+  c) Welche Strategie wird verwendet und erklaeren Sie wieso? (0.4p)
+
+    Ein Hash Join, da wir einen Natural Join durchfuehren und ein Hash Join in diesem Fall aufgrund seiner trotz dem Mangel an Indices relativ geringen Laufzeit eine gute Wahl ist
+
+  d) Erstellen Sie einen B+Baum-Index auf das Attribut 'nconst' der Tabelle 'principals'. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+    CREATE INDEX ON principals (nconst);
+
+  e) Geben Sie erneut den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie names.primaryName anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT names.primaryname FROM names NATURAL JOIN principals WHERE primaryname = 'Harrison Ford' AND birthyear = 1942;
+                                                   QUERY PLAN                                               
+    --------------------------------------------------------------------------------------------------------
+     Nested Loop  (cost=1000.56..217884.44 rows=3 width=14)
+       ->  Gather  (cost=1000.00..217013.93 rows=1 width=25)
+             Workers Planned: 2
+             ->  Parallel Seq Scan on names  (cost=0.00..216013.83 rows=1 width=25)
+                   Filter: ((primaryname = 'Harrison Ford'::text) AND (birthyear = 1942))
+       ->  Index Only Scan using principals_nconst_idx on principals  (cost=0.56..868.09 rows=242 width=11)
+             Index Cond: (nconst = names.nconst)
+    (7 rows)
+
+  f) Wird nun eine andere Strategie ausgewaehlt. Wenn ja, welche und erklaeren Sie weshalb? (0.4p)
+
+    Ja, nun wird ein Indexed Nested Loop Join ausgewaehlt, da wir nun einen Index auf das Attribut "nconst" haben, welches sowohl in names als auch principals vorkommt. Ein Indexed Nested Loop Join hat i.A. eine geringere Laufzeit als ein Hash Join. Es werden mit einem sequentiellen Scan ueber names jene Tupel ausgewaehlt, die passenden Namen und Geburtsjahr haben, und dann in einer nested loop mit Tupeln mit passendem nconst-Attribut aus principals gejoined. Dank dem Index auf principals lassen sich Tupel mit uebereinstimmendem nconst-Attribut schnell finden.
+
+  g) Erstellen Sie einen B+-Baum-Index auf das Attribut 'birthyear' der Tabelle 'names'. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+    CREATE INDEX ON names (birthyear);
+
+  h) Clustern Sie die Tabelle 'names' auf dem Index 'names_birthyear_idx'. Dadurch wird der Index 'names_birthyear_idx' zu einem Clustering Index. (0.4p)
+     Anmerkung: Fuehren Sie danach unbedingt den SQL Befehl 'ANALYZE names' aus, damit die Datenbank auch weisz, dass sich die Sortierung der Tabelle geaendert hat.
+
+    CLUSTER names USING names_birthyear_idx;
+
+  i) Geben Sie erneut den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie names.primaryName anstatt count(*)) an. (0.4p)
+
+    dpape=# EXPLAIN SELECT names.primaryname FROM names NATURAL JOIN principals WHERE primaryname = 'Harrison Ford' AND birthyear = 1942;
+                                                   QUERY PLAN                                               
+    --------------------------------------------------------------------------------------------------------
+     Nested Loop  (cost=1.00..950.67 rows=3 width=14)
+       ->  Index Scan using names_birthyear_idx on names  (cost=0.43..80.16 rows=1 width=25)
+             Index Cond: (birthyear = 1942)
+             Filter: (primaryname = 'Harrison Ford'::text)
+       ->  Index Only Scan using principals_nconst_idx on principals  (cost=0.56..868.09 rows=242 width=11)
+             Index Cond: (nconst = names.nconst)
+    (6 rows)
+
+  j) Welche Strategie wird verwendet und erklaeren Sie wieso? (0.4p)
+
+    Es wird wieder ein Nested Loop Join verwendet, diesmal muss die Datenbank aber keinen sequentiellen Scan auf names mehr ausfuehren, um names auf Tupel mit passendem Geburtsjahr und Namen zu filtern, da wir einen Index haben und die Daten physisch nach Geburtsjahr geordnet sind. Stattdessen wird der Index verwendet.
+
+  k) Warum ist ein Clustering Index auf dem Attribut 'birthyear' fuer diese Anfrage sinnvoll? (0.4p)
+
+    Wegen der physischen Ordnung und dem Index muss man nur noch das erste Tupel mit Geburtsjahr 1942 ausfindig machen und von da an sequentiell alle Tupel lesen, bis das erste Tupel mit Geburtsjahr > 1942 gefunden wird.

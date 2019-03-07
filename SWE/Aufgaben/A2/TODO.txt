@@ -1,1 +1,0 @@
-sizelimitreachedexception is kind of a shitty name

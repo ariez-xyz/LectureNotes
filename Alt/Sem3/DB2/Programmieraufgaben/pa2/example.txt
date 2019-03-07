@@ -1,0 +1,58 @@
+*****************
+**** EXAMPLE ****
+*****************
+1. Geben Sie alle Originaltitel aus, die nach dem Jahr 2000 gestartet sind (startyear). (Tabelle titles)
+
+  a) Wie grosz ist die Ergebnismenge (count(*)) der Anfrage? Geben Sie sowohl die Anfrage, als auch das Ergebnis an. (0.4p)
+
+      SELECT count(*) FROM titles where startyear > 2000;
+
+        count  
+      ---------
+       3506342
+      (1 row)
+
+  b) Geben Sie den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+      EXPLAIN ANALYZE SELECT * FROM titles where startyear > 2000;
+
+                                                            QUERY PLAN                                                       
+      -----------------------------------------------------------------------------------------------------------------------
+       Seq Scan on titles  (cost=0.00..168876.40 rows=3512570 width=112) (actual time=19.925..2389.026 rows=3506342 loops=1)
+         Filter: (startyear > 2000)
+         Rows Removed by Filter: 1941530
+       Planning time: 0.162 ms
+       Execution time: 2580.534 ms
+      (5 rows)
+
+  c) Welche Strategie wird verwendet und erklaeren Sie wieso? (0.4p)
+
+      Ein sequentieller Scan auf der Tabelle titles, da weder eine Sortierung noch ein Index auf dem Attribut startyear vorliegt/existiert.
+
+  d) Erstellen Sie einen Index auf das Attribut 'startyear'. Geben Sie den entsprechenden SQL Befehl an. (0.4p)
+
+      CREATE INDEX titles_startyear_idx ON titles(startyear);
+
+  e) Geben Sie erneut den Ausfuehrungsplan der urspruenglichen Anfrage (verwenden Sie * anstatt count(*)) an. (0.4p)
+
+      EXPLAIN ANALYZE SELECT * FROM titles where startyear > 2000;
+      
+                                                            QUERY PLAN                                                       
+      -----------------------------------------------------------------------------------------------------------------------
+       Seq Scan on titles  (cost=0.00..168876.40 rows=3512570 width=112) (actual time=14.574..1852.520 rows=3506342 loops=1)
+         Filter: (startyear > 2000)
+         Rows Removed by Filter: 1941530
+       Planning time: 0.276 ms
+       Execution time: 2030.638 ms
+      (5 rows)
+
+  f) Wird nun eine andere Strategie ausgewaehlt. Wenn ja, welche und erklaeren Sie weshalb? (0.4p)
+
+      Wie c) mit dem Unterschied, dass diesmal ein Index auf dem Attribut startyear existiert, aber nicht verwendet wird.
+
+  g) Warum wird der Index auf dem Attribut startyear in dieser Anfrage nicht verwendet? Geben Sie eine Anfrage an, in der der Index verwendet wird. (0.4p)
+
+      Weil die Ergebnismenge sehr grosz ist. Aufgrund der Statistiken der Tabelle titles kommt der Optimierer zum Schluss, dass ein sequentieller Scan immer noch schneller ist als den Index zu verwenden.
+
+      SELECT count(*) FROM titles where startyear > 2018;
+      Die obige Anfrage verwendet einen Index Scan um die Anfrage auszuwerten, da die Ergebnismenge klein genug ist (15825).

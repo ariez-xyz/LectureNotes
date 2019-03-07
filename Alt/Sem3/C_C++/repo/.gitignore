@@ -1,0 +1,16 @@
+*.DS_Store
+*.[oda]
+*.obj
+*.out
+*.o
+*.d
+*.swp
+*.swo
+programm
+*.exe
+*.dat
+*.txt
+*.zip
+*.sh
+*.md
+*~
