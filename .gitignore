@@ -12,3 +12,5 @@ Analysis/
 html/
 *.csv
 */.git/
+*.class
+*.tsv

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="assignment1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgresql-42.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dbt01.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
