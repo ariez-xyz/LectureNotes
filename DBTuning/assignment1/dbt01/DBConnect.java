@@ -4,8 +4,31 @@ import java.sql.*;
 import java.io.*;
 
 public class DBConnect {
-    
+    static int n = -1;
+    static int ctr = 0;
+    static long stime = 0;
+    static int limit = Integer.MAX_VALUE;
+
+    static void usage() {
+        System.out.println("usage: DBConnect strategy [ limit ]");
+        System.out.println("available strategies:");
+        System.out.println("\t<1> naive loop");
+        System.out.println("\t<2> naive loop without autocommit");
+        System.out.println("\t<3> COPY statement (limit unsupported)");
+        System.exit(1);
+    }
+
     public static void main(String[] args) throws Exception {
+        int strategy = Integer.parseInt(args[0]);
+        if(args.length > 1)
+            limit = Integer.parseInt(args[1]);
+
+        //print stats on ctrl c
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                System.out.println(String.format("\nadded ~%d entries in %fs", n, (double) (System.currentTimeMillis() - stime) / 1000));
+            }
+        });
         try {
             Class.forName ( "org.postgresql.Driver" );
             System.err.println("Driver found.");
@@ -51,33 +74,56 @@ public class DBConnect {
             "publisher char(196))"
         };
 
-        int ctr = 0;
-
         try {
             for(String qry : updates) {
                 con.createStatement().executeUpdate(qry);
                 ctr++;
             }	    
-            System.out.println("Updates sucessful.");
         } catch (Exception e) {
             System.err.println("Update " + ctr + " was not successful.");
             e.printStackTrace();
         }
 
         //read auth
+        switch(strategy) {
+            case 1: naive(con);
+                    break;
+            case 2: noautocommit(con);
+                    break;
+            case 3: copy(con);
+                    break;
+            default: System.out.println("[ERROR] unknown strategy selected");
+        }
+    }
 
-        long time = System.currentTimeMillis();
+    static void naive(Connection con) throws Exception {
+        stime = System.currentTimeMillis();
         try (BufferedReader br = new BufferedReader(new FileReader(new File("./auth.tsv")))) {
             String line;
             ctr = 0;
-            while((line = br.readLine()) != null) {
+            System.err.println("reading auth...");
+            while((line = br.readLine()) != null && n < limit) {
                 String[] split = line.split("\t");
                 int test = split[0].indexOf('\'');
+
+                // deal with Patrick E. O'Neil 
                 if(test >= 0)
-                    split[0] = split[0].substring(0, test) + split[0].substring(test + 1, split[0].length());
+                    split[0] = split[0].substring(0, test) + '\'' + split[0].substring(test);
+
                 con.createStatement().executeUpdate(String.format("INSERT INTO Auth (name, pubId) VALUES ('%s', '%s')", split[0], split[1]));
-                System.err.print("n = " + ctr++ + ", t = "+ (System.currentTimeMillis() - time) +"\r");
+                n++;
             }
         }
+    }
+
+    static void noautocommit(Connection con) throws Exception {
+        con.createStatement().executeUpdate("BEGIN;");
+        naive(con);
+        con.createStatement().executeUpdate("COMMIT;");
+    }
+
+    static void copy(Connection con) throws Exception {
+        stime = System.currentTimeMillis();
+        con.createStatement().executeUpdate("COPY Auth (name, pubId) FROM '/Users/dpape/Documents/Uni/DBTuning/assignment1/auth.tsv';");
     }
 }
