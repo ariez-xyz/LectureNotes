@@ -19,6 +19,9 @@ public class DBConnect {
     }
 
     public static void main(String[] args) throws Exception {
+        if(args.length != 1 && args.length != 2)
+            usage();
+
         int strategy = Integer.parseInt(args[0]);
         if(args.length > 1)
             limit = Integer.parseInt(args[1]);
@@ -124,6 +127,6 @@ public class DBConnect {
 
     static void copy(Connection con) throws Exception {
         stime = System.currentTimeMillis();
-        con.createStatement().executeUpdate("COPY Auth (name, pubId) FROM '/Users/dpape/Documents/Uni/DBTuning/assignment1/auth.tsv';");
+        con.createStatement().executeUpdate("COPY Auth (name, pubId) FROM '" + System.getProperty("user.dir") + "/auth.tsv';");
     }
 }
