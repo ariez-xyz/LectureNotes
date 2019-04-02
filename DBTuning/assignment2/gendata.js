@@ -16,6 +16,7 @@ buffer = "";
 deptNames = []
 deptManagers = []
 
+console.log("WARNING: PUTTING ALL DEPTS INTO DEPTS.TSV... REMOVE ALL BUT THE FIRST 10");
 Object.entries(depts).forEach(entry => {
     buffer += entry[0] + "\t"; //dept
     deptNames.push(entry[0])
@@ -41,8 +42,7 @@ while(i < 100000) {
 buffer = "";
 personNames = []
 
-Object.entries(persons).forEach(entry => {
-    buffer += entry[1] + "\t"; //ssn
+Object.entries(persons).forEach(entry => { buffer += entry[1] + "\t"; //ssn
     buffer += entry[0] + "\t"; //name
     personNames.push(entry[0]);
 
