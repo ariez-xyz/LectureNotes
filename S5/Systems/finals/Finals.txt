@@ -1,0 +1,12 @@
+1. Define race condition by example using machine code. First, describe the memory layout and machine state of threads and point out which parts are shared and which are not. For your code example, specify where in memory the code operates and how its behavior may be a problem. [10 points]
+
+2. List and explain ways to avoid race conditions using examples. Distinguish techniques that work on multicore machines from those that do not. Implement compare_and_swap using C* code. [10 points]
+
+3. Define lock-freedom. Implement a lock-free stack in C* using compare_and_swap. Argue as to why your implementation is lock-free. [10 points]
+
+4. Define false sharing. Implement a program in C* that creates two threads where each thread increments a thread-local counter a billion times without any chance of false sharing. [10 points]
+
+5. Suppose we are given a 3GHz machine called M that can execute any machine instruction of M in exactly one processor cycle. How many instructions does M execute in 6s? Suppose we are running an emulator E of M on M and E needs exactly 300 instructions of M to emulate any of the instructions of M. How many instructions does E execute in 6s? Suppose we run another instance E’ of E on E. How many instructions does E’ execute in 6s? Suppose a program P takes 1s to run on
+
+X. How long does running P on E and on E’ take? How long does running P on a virtual machine V of X running on X take if V does a context switch every one million instructions where each switch takes 1000 instructions? How long does running P on V take if V runs on E? Provide exact numbers and formulae using powers of 10
+with correct units (#instructions, seconds, minutes, hours). [10 points]
