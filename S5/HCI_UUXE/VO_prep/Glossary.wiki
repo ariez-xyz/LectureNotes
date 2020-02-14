@@ -1,0 +1,16 @@
+= Glossary =
+
+| Word            | Meaning                                                    |
+|-----------------|------------------------------------------------------------|
+| Usability       | Benutzerfreundlichkeit. "Effectiveness, efficiency and     |
+|                 | user satisfaction provided by a product."                  |
+| User Experience | User emotions, beliefs, preferences, perceptions occuring  |
+|                 | before, during and after use.                              |
+| Sprint          | in Agile: a certain amount of time in which a significant  |
+|                 | increment can be completed (set of backlog items finished) |
+| Increment       | releaseable product                                        |
+| Product Owner   | decision maker, management of backlog                      |
+| Backlog         | Ordered, continously expanded list of features             |
+|                 | and imrpovements for a product                             |
+
+

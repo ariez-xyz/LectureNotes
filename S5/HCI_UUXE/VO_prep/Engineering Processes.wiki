@@ -1,0 +1,87 @@
+= Engineering Processes =
+
+== Prozesse ==
+
+Wir betrachten verschiedene Softwareentwicklungs-Prozesse. Es folgt eine Liste mit kurzen Überblicken über die gegebenen Prozesse.
+
+1. Wasserfallmodell
+  * Unterschiedlich viele Phasen
+  * Das Ergebnis einer Phase ist der Input für die nächste
+2. ISO 9241-210 "Human-centred design activities"
+  * Es gibt 3 Schritte, nach deren Durchlaufen evaluiert wird
+    1. *Verstehen*: Nutzungskontext verstehen und beschreiben
+    2. *Beschreiben*: Nutzungsanforderungen spezifizieren
+    3. *Entwickeln*: Gestaltungslösungen entwickeln
+    4. *Evaluieren*: Evaluierung aus Benutzerperspektive
+  * Falls nötig, kann nach der Evaluierung zu jedem der vorangegangenen Schritte zurückgesprungen werden
+3. UPA (Usability Professionals' Association) model
+  * 4 Phasen mit jeweils 5-10 Schritten:
+  * Analysis, Design, Implementation, Deployment
+4. C. Lewis' Modell
+  * 11 Schritte
+  * "task-centered design" anhand einer repräsentativen Aufgabe
+  * empfiehlt Plagiieren, schnelle und frühe erste Entwürfe
+5. J. Nielsen's Modell
+  * auch 11 Schritte
+  * nicht allzu viel anders als Lewis
+  * Iterative Evaluierungen und Verbesserungen am Ende des Prozesses
+6. Goal Directed Design nach Cooper
+7. Usability Engineering nach Mayhew
+
+== Universelles ==
+  
+Bestimmte Ideen scheinen recht universell in allen Prozessen vorhanden zu sein und könnten daher recht wertvoll sein:
+
+* Nutzerfokus (Verständnis über die Domäne, Arbeit, den Kontext) und Nutzeranalyse
+* Oft und früh Feedback einholen und entsprechend iterieren
+* Oft schnelle, einfache Prototypen erstellen
+* Auch nach "Fertigstellung" weiter Verbesserungsmöglichkeiten suchen
+* "Personas" und "Scenarios" verwenden (d.h. fiktive Personen und deren Nutzung der Anwendung in fiktiven Szenarien durchspielen)
+* UX Lifecycle festlegen (d.h. was ist das gewöhnliche Szenario, in dem die App verwendet wird?)
+* Sich an einen Analyze - Design - Implement - Evaluate Zyklus halten
+  * Analyze: Verständnis über Domäne, Arbeit, Kontext, Bedürfnisse aufbauen (z.B. mit Contextual Inquiry)
+  * Design: Ideation Phase - überlegen, wie die Anforderungen erfüllende Lösungen aussehen könnten
+  * Implementation (zunächst Mockups und Prototypen)
+  * Evaluierung durch Nutzerbefragung etc.
+
+== Mögliche Probleme ==
+
+* Es muss klar sein, wann eine Phase "fertig" ist, d.h. klare Zielsetzung/Mindestqualität für alle Phasen, sonst hängt man evtl. zu lange fest
+* Welcher Prozess optimal ist, hängt von den Projektparametern (d.h. Risikotoleranz, Zeit, Team, ...) ab
+  * Komplexität des Projekts lässt sich in zwei Kategorien einteilen:
+    1) Interaction Complexity: Komplexität in der Interaktion mit dem System
+      => Fokus auf Design, Evaluation
+    2) Work domain complexity: Komplexität in dem, was das System tun soll
+      => Fokus auf Analyse
+  * ist das Projekt nicht komplex, soll "Joy-of-use"/Ästhetik bevorzugt werden
+* wenn iteriert wird, nur über günstige Teile des Projekts - daher über Papierprototypen etc. iterieren
+* Viele Stakeholder, komplexe, morphende Anforderungen
+  * Gemeinsame Vision erstellen, Ideen dokumentieren und kommunizieren, in kleinen Schritten vorangehen, evaluieren, iterieren
+
+== Agile ==
+
+Agile wird als Alternative zu den vorhergegangenen Entwicklungsprozessen vorgestellt. Dazu wird auch Scrum vorgestellt.
+
+Agile ist ein Designprozess. Scrum ist ein Framework, in dem Menschen (zumindest lokal optimal) komplexe, sich ändernde Aufgabenstellungen angehen können.
+
+== Scrum ==
+
+Im Folgenden die Säulen von Scrum:
+
+* *Transparenz* des Prozesses, der Ziele. Gemeinsame Standards und Sprache
+* Regelmäßige *Überprüfung* des Fortschrittes
+* Schnelle *Anpassung*, falls es Abweichungen zum Plan bei der Überprüfung gibt
+
+Um dies umzusetzen, werden vier formale Events eingesetzt:
+
+* *Sprint Planning*: Ziele für den nächsten Sprint (ein Zeitraum, in dem eine signifikantes Inkrement erreicht werden kann, <= 1 Monat) werden aus dem Backlog ausgesucht und gesetzt.
+* *Daily Scrum*: Meeting, in dem besprochen wird, was getan wurde, wo es Probleme gab, ...
+* *Sprint Review*: Es wird überlegt, was getan wurde und ob das Ziel erreicht wurde
+* *Sprint Retrospective*: Es wird überlegt, was gut war und was verbessert werden kann.
+
+Die Rollen in einem Scrum Team werden kurz vorgestellt:
+
+* Product Owner: Entscheidungsträger, Management des Backlogs
+* Entwicklungsteam: Team, was die eigentliche Arbeit macht
+* Scrum Master: sorgt dafür, dass das Team Scrum einhält
+
