@@ -15,3 +15,6 @@ html/
 *.class
 *.tsv
 S5/Systems/repo
+S5/HCI_UUXE/VO_prep
+S5/HCI_UUXE/VO_prep_html
+.gitignore
