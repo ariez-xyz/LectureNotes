@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boone>
+  <set class="PatternSet">
+    <pattern>
+      <input>0.0, 1.0, 2.0</input>
+      <target />
+    </pattern>
+    <pattern>
+      <input>3.0, 4.0</input>
+      <target>5.0, 6.0, 7.0</target>
+    </pattern>
+    <pattern>
+      <input>8.0, 9.0, 10.0, 11.0</input>
+      <target />
+    </pattern>
+    <property name="emptyProp" value="" />
+    <property name="testProp" value="something" />
+  </set>
+</boone>

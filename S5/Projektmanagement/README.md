@@ -1,0 +1,1 @@
+Projektmanagement und Software Praktikum wurden zusammengelegt -- in dem Kontext ist die [Naehrwerte App](https://github.com/Schlachtschiff/Nutrition) entstanden. Für PM gab es dennoch eine Prüfung, dazu hier der Fragenkatalog.

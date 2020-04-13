@@ -62,7 +62,7 @@ In conclusion, becoming cheaper enables computing to be embedded into every aspe
 
 ## 2. Transformations in Interaction
 
-Ubiquitous computing means ubiquitous interfaces, hyper-connectivity and "the end of the ephemeral" [2] (saving all information). This implies:
+Ubiquitous computing means ubiquitous interfaces, hyper-connectivity and "the end of the ephemeral" [^2] (saving all information). This implies:
 
 * Interfaces need to deviate very far from the classic desktop to fit their purpose, but also stay intuitive
 * Technology makes skills like calculating in one's head obsolete which might be worth worrying about
@@ -91,7 +91,7 @@ To exemplify the changing world laid out in Chapter 1 of the report, I think the
 
 [1]: "About this report", p.10
 
-[2]: "Human values in the face of change", p.34
+[^2]: "Human values in the face of change", p.342
 
 [3]: "The Way Forward", p.55
 
