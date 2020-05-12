@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		918AEB8B245AF7BB0028E4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AEB8A245AF7BB0028E4E0 /* AppDelegate.swift */; };
+		918AEB8D245AF7BB0028E4E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AEB8C245AF7BB0028E4E0 /* SceneDelegate.swift */; };
+		918AEB8F245AF7BB0028E4E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AEB8E245AF7BB0028E4E0 /* ContentView.swift */; };
+		918AEB91245AF7BD0028E4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918AEB90245AF7BD0028E4E0 /* Assets.xcassets */; };
+		918AEB94245AF7BD0028E4E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918AEB93245AF7BD0028E4E0 /* Preview Assets.xcassets */; };
+		918AEB97245AF7BD0028E4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 918AEB95245AF7BD0028E4E0 /* LaunchScreen.storyboard */; };
+		918AEBA2245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AEBA1245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.swift */; };
+		918AEBAD245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AEBAC245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		918AEB9E245AF7BD0028E4E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 918AEB7F245AF7BB0028E4E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 918AEB86245AF7BB0028E4E0;
+			remoteInfo = DihydrogenMonoxideMonitor;
+		};
+		918AEBA9245AF7BD0028E4E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 918AEB7F245AF7BB0028E4E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 918AEB86245AF7BB0028E4E0;
+			remoteInfo = DihydrogenMonoxideMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		918AEB87245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DihydrogenMonoxideMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		918AEB8A245AF7BB0028E4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		918AEB8C245AF7BB0028E4E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		918AEB8E245AF7BB0028E4E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		918AEB90245AF7BD0028E4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		918AEB93245AF7BD0028E4E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		918AEB96245AF7BD0028E4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		918AEB98245AF7BD0028E4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		918AEB9D245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DihydrogenMonoxideMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		918AEBA1245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DihydrogenMonoxideMonitorTests.swift; sourceTree = "<group>"; };
+		918AEBA3245AF7BD0028E4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		918AEBA8245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DihydrogenMonoxideMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		918AEBAC245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DihydrogenMonoxideMonitorUITests.swift; sourceTree = "<group>"; };
+		918AEBAE245AF7BD0028E4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		918AEB84245AF7BB0028E4E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEB9A245AF7BD0028E4E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEBA5245AF7BD0028E4E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		918AEB7E245AF7BB0028E4E0 = {
+			isa = PBXGroup;
+			children = (
+				918AEB89245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */,
+				918AEBA0245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests */,
+				918AEBAB245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests */,
+				918AEB88245AF7BB0028E4E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		918AEB88245AF7BB0028E4E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				918AEB87245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor.app */,
+				918AEB9D245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.xctest */,
+				918AEBA8245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		918AEB89245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				918AEB8A245AF7BB0028E4E0 /* AppDelegate.swift */,
+				918AEB8C245AF7BB0028E4E0 /* SceneDelegate.swift */,
+				918AEB8E245AF7BB0028E4E0 /* ContentView.swift */,
+				918AEB90245AF7BD0028E4E0 /* Assets.xcassets */,
+				918AEB95245AF7BD0028E4E0 /* LaunchScreen.storyboard */,
+				918AEB98245AF7BD0028E4E0 /* Info.plist */,
+				918AEB92245AF7BD0028E4E0 /* Preview Content */,
+			);
+			path = DihydrogenMonoxideMonitor;
+			sourceTree = "<group>";
+		};
+		918AEB92245AF7BD0028E4E0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				918AEB93245AF7BD0028E4E0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		918AEBA0245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				918AEBA1245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.swift */,
+				918AEBA3245AF7BD0028E4E0 /* Info.plist */,
+			);
+			path = DihydrogenMonoxideMonitorTests;
+			sourceTree = "<group>";
+		};
+		918AEBAB245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				918AEBAC245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.swift */,
+				918AEBAE245AF7BD0028E4E0 /* Info.plist */,
+			);
+			path = DihydrogenMonoxideMonitorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		918AEB86245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 918AEBB1245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitor" */;
+			buildPhases = (
+				918AEB83245AF7BB0028E4E0 /* Sources */,
+				918AEB84245AF7BB0028E4E0 /* Frameworks */,
+				918AEB85245AF7BB0028E4E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DihydrogenMonoxideMonitor;
+			productName = DihydrogenMonoxideMonitor;
+			productReference = 918AEB87245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		918AEB9C245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 918AEBB4245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitorTests" */;
+			buildPhases = (
+				918AEB99245AF7BD0028E4E0 /* Sources */,
+				918AEB9A245AF7BD0028E4E0 /* Frameworks */,
+				918AEB9B245AF7BD0028E4E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				918AEB9F245AF7BD0028E4E0 /* PBXTargetDependency */,
+			);
+			name = DihydrogenMonoxideMonitorTests;
+			productName = DihydrogenMonoxideMonitorTests;
+			productReference = 918AEB9D245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		918AEBA7245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 918AEBB7245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitorUITests" */;
+			buildPhases = (
+				918AEBA4245AF7BD0028E4E0 /* Sources */,
+				918AEBA5245AF7BD0028E4E0 /* Frameworks */,
+				918AEBA6245AF7BD0028E4E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				918AEBAA245AF7BD0028E4E0 /* PBXTargetDependency */,
+			);
+			name = DihydrogenMonoxideMonitorUITests;
+			productName = DihydrogenMonoxideMonitorUITests;
+			productReference = 918AEBA8245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		918AEB7F245AF7BB0028E4E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = AriezLabs;
+				TargetAttributes = {
+					918AEB86245AF7BB0028E4E0 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					918AEB9C245AF7BD0028E4E0 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 918AEB86245AF7BB0028E4E0;
+					};
+					918AEBA7245AF7BD0028E4E0 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 918AEB86245AF7BB0028E4E0;
+					};
+				};
+			};
+			buildConfigurationList = 918AEB82245AF7BB0028E4E0 /* Build configuration list for PBXProject "DihydrogenMonoxideMonitor" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 918AEB7E245AF7BB0028E4E0;
+			productRefGroup = 918AEB88245AF7BB0028E4E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				918AEB86245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */,
+				918AEB9C245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests */,
+				918AEBA7245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		918AEB85245AF7BB0028E4E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				918AEB97245AF7BD0028E4E0 /* LaunchScreen.storyboard in Resources */,
+				918AEB94245AF7BD0028E4E0 /* Preview Assets.xcassets in Resources */,
+				918AEB91245AF7BD0028E4E0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEB9B245AF7BD0028E4E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEBA6245AF7BD0028E4E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		918AEB83245AF7BB0028E4E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				918AEB8B245AF7BB0028E4E0 /* AppDelegate.swift in Sources */,
+				918AEB8D245AF7BB0028E4E0 /* SceneDelegate.swift in Sources */,
+				918AEB8F245AF7BB0028E4E0 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEB99245AF7BD0028E4E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				918AEBA2245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		918AEBA4245AF7BD0028E4E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				918AEBAD245AF7BD0028E4E0 /* DihydrogenMonoxideMonitorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		918AEB9F245AF7BD0028E4E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 918AEB86245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */;
+			targetProxy = 918AEB9E245AF7BD0028E4E0 /* PBXContainerItemProxy */;
+		};
+		918AEBAA245AF7BD0028E4E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 918AEB86245AF7BB0028E4E0 /* DihydrogenMonoxideMonitor */;
+			targetProxy = 918AEBA9245AF7BD0028E4E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		918AEB95245AF7BD0028E4E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				918AEB96245AF7BD0028E4E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		918AEBAF245AF7BD0028E4E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		918AEBB0245AF7BD0028E4E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		918AEBB2245AF7BD0028E4E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DihydrogenMonoxideMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 2S39MFYC8N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		918AEBB3245AF7BD0028E4E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DihydrogenMonoxideMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 2S39MFYC8N;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		918AEBB5245AF7BD0028E4E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DihydrogenMonoxideMonitor.app/DihydrogenMonoxideMonitor";
+			};
+			name = Debug;
+		};
+		918AEBB6245AF7BD0028E4E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DihydrogenMonoxideMonitor.app/DihydrogenMonoxideMonitor";
+			};
+			name = Release;
+		};
+		918AEBB8245AF7BD0028E4E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DihydrogenMonoxideMonitor;
+			};
+			name = Debug;
+		};
+		918AEBB9245AF7BD0028E4E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DihydrogenMonoxideMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariezlabs.DihydrogenMonoxideMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DihydrogenMonoxideMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		918AEB82245AF7BB0028E4E0 /* Build configuration list for PBXProject "DihydrogenMonoxideMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				918AEBAF245AF7BD0028E4E0 /* Debug */,
+				918AEBB0245AF7BD0028E4E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		918AEBB1245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				918AEBB2245AF7BD0028E4E0 /* Debug */,
+				918AEBB3245AF7BD0028E4E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		918AEBB4245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				918AEBB5245AF7BD0028E4E0 /* Debug */,
+				918AEBB6245AF7BD0028E4E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		918AEBB7245AF7BD0028E4E0 /* Build configuration list for PBXNativeTarget "DihydrogenMonoxideMonitorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				918AEBB8245AF7BD0028E4E0 /* Debug */,
+				918AEBB9245AF7BD0028E4E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 918AEB7F245AF7BB0028E4E0 /* Project object */;
+}
