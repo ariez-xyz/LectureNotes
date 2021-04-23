@@ -30,7 +30,7 @@ key = b""
 
 for s in sets:
     counts = count_freqs(s)
-    space_char = max(counts, key=counts.get)
+    space_char = max(counts, key=counts.get) # space_char holds what ' ' is mapped to
     key += bytes([space_char ^ ord(" ")])
 
 print(f"key candidate: {key}")

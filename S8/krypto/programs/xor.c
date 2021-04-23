@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* Usage: crypto key infile outfile */
-// XOR en-/decryptor.
+// XOR en-/decryptor. credit: Schneier's Applied Cryptography
 
 
 int main (int argc, char *argv[]) {
