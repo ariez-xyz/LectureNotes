@@ -1,0 +1,106 @@
+
+#######################
+# Manchester Encoding #
+#######################
+
+0 is lo-hi; 1 is hi-lo. Encode "NVS2021":
+
+01010101010101010110010110101001010101010101010101100110011010010101010101010101011001100101101001010101010101010101101001011001010101010101010101011010010101010101010101010101010110100101100101010101010101010101101001010110
+
+
+##############
+# 4B5B/MLT-3 #
+##############
+
+4B5B encoded "NVS2021":
+
+111101111010101110011110111101011111011110111101011101011111011110101011010011110111101010111110111101111010101101001111011110101011001
+
+Ethernet 100base-tx ist sehr nah an ANSI X3.263 angelehnt, welches MLT-3 als letztes
+Encoding vor der Übertragung des Datenstreams verwendet. 
+Selbiges gilt für Ethernet. Gründe für die Verwendung von MLT-3 sind gerinere 
+elektromagnetische Interferenz und höhere Bandbreite verglichen 
+mit z.B. dem Manchester Encoding. MLT-3 setzt aber voraus, dass es keine zu langen Serien
+von 0 bits gibt, da es keine Transition bei einer 0 gibt.
+Durch die vorherige Kodierung mit 4B5B ist dies gegeben.
+
+Reencoded with MLT-3:
+
+0+0--0+0--00++0-000+0-00+0-00++0-0+00-0+00-0+00--0+00--0+0-00+0-00++00-00+++0-0++0-0++00--0+0-00+0-00+0-00++00-00+++0-0++0-0++00--0+++0
+
+
+###########
+# CSMA/CD #
+###########
+
+    C      C      C    
+    |      |      |
+----┴------┴------┴----
+
+Mehrere Rechner sind in einem (non-duplex) Netzwerk miteinander verbunden. CSMA/CD ist eine
+Methode, um Kollisionen zu vermeiden: Teilnehmer warten darauf, dass die Leitung frei ist,
+bevor sie ein Signal senden. So werden Kollisionen vermieden.
+
+
+    C      C      C    
+    ║      |      |
+════╩══════╧══════╧════
+
+Ist die Leitung frei, kann ohne Probleme gesendet werden.
+
+
+    C      C      C    
+    ║      ║      |
+xxxx╩xxxxxx╩xxxxxxxxxxx
+
+Senden zwei Teilnehmer genau gleichzeitig, passiert dennoch eine Kollision.
+Die Kollision kann von den Sendern erkannt werden, weil das Signal auf der Leitung anders
+ist als jenes, was gerade gesendet wird. Dann wird die Jam Sequence gesendet, Teilnehmer
+warten eine zufällige Zeit, und versuchen danach erneut zu senden.
+
+Begriffe:
+
+Carrier Sense bedeutet, dass mit dem Netzwerk verbundene Rechner feststellen können, ob die
+Leitung gerade belegt ist oder nicht.
+
+Binary Exponential Backoff ist eine Methode, um die Länge der backoff period (bei einer
+Kollision) festzulegen. Dabei wird k*c lange gewartet, wobei c eine Konstante ist und k eine
+zufällige Zahl in [0,2^i]. i ist die Anzahl an vorherigen gescheiterten Versuchen. 
+Durch exponentielle Steigerung der maximalen Wartedauer wird congestion vermieden.
+
+Die jam sequence ist eine Sequenz, die gesendet wird, wenn ein Teilnehmer im Netzwerk eine
+Kollision feststellt. Die Länge von Ethernet-Paketen hat ein Minimum, damit garantiert ist,
+dass keine Pakete als "fehlerfrei gesendet" markiert werden, weil die jam sequence länger
+gebraucht hat, um zum Sender zu kommen, als das Paket zum Senden gedauert hat.
+
+
+#######
+# CRC #
+#######
+
+message is 11001110
+poly is 10011
+crc length is 4
+
+computing crc:
+
+message	110011100000
+poly	100110000000
+result	010101100000	
+
+message	010101100000
+poly	010011000000
+result	000110100000	
+
+message	000110100000
+poly	000100110000
+result	000010010000	
+
+message	000010010000
+poly	000010011000
+result	000000001000	
+
+final:	110011101000
+
+
+zeitaufwand: ~7h
